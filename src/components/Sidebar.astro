@@ -1,0 +1,42 @@
+---
+import { ChartNoAxesCombined, LayoutPanelLeft, Map, User, Van } from "@lucide/astro";
+
+const links = [
+	{ href: "/", label: "Dashboard", icon: LayoutPanelLeft },
+	{ href: "/fleet", label: "Fleet Status", icon: Van },
+	{ href: "/drivers", label: "Driver Management", icon: User },
+	{ href: "/routes", label: "Routes", icon: Map },
+	{ href: "/analytics", label: "Analytics", icon: ChartNoAxesCombined },
+];
+---
+
+<div class="fixed top-0 left-0 flex h-full w-64 flex-col bg-slate-50 shadow-md">
+	<div class="p-5">
+		<h1 class="text-lg font-bold text-slate-900">Logistics</h1>
+		<p class="text-sm text-slate-500">National Fleet Admin</p>
+	</div>
+	<nav class="flex flex-1 flex-col gap-1 px-3">
+		{
+			links.map(({ href, label, icon: Icon }) => (
+				<a
+					href={href}
+					class="flex items-center flex-row gap-3 rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-200"
+				>
+					<Icon size={18} />
+                    {label}
+				</a>
+			))
+		}
+	</nav>
+    <div class="flex flex-row items-center border-t-2 p-2 border-slate-100">
+        <img src="/src/assets/user.jpeg" class="w-10 h-10 rounded-full border-2 border-slate-300" />
+        <span class="flex flex-col px-3">
+            <h1 class="text-sm font-bold text-slate-900">
+                Admin User
+            </h1>
+            <h3 class="text-xs text-slate-500">
+                System Administrator
+            </h3>
+        </span>
+    </div>
+</div>
