@@ -1,0 +1,38 @@
+---
+export const prerender = false;
+
+import Layout from '../layouts/Layout.astro';
+import LocationMap from '../components/LocationMap';
+import StepProgress from '../components/StepProgress.astro';
+
+const date = Astro.url.searchParams.get('date');
+---
+
+<Layout title="Обери місце">
+	<main class="relative h-screen w-full overflow-hidden">
+		<div class="absolute inset-x-0 top-0 z-20 h-1 bg-gradient-to-r from-accent via-accent-dark to-accent"></div>
+
+		<div class="absolute left-4 top-6 z-20 sm:left-8">
+			<div class="rounded-2xl bg-card/90 px-5 py-3 shadow-lg backdrop-blur">
+				<h1 class="font-display text-lg italic text-ink">Де зустрінемось?</h1>
+			</div>
+		</div>
+
+		<div class="absolute right-4 top-6 z-20 w-40 rounded-2xl bg-card/90 px-4 py-3 shadow-lg backdrop-blur sm:right-8">
+			<StepProgress step={3} total={4} label="Крок 3 з 4" />
+		</div>
+
+		<svg
+			class="float-slow pointer-events-none absolute right-10 top-28 z-10 hidden h-10 w-10 text-accent-soft/70 sm:block"
+			viewBox="0 0 24 24"
+			fill="currentColor"
+			aria-hidden="true"
+		>
+			<path
+				d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
+			></path>
+		</svg>
+
+		<LocationMap date={date} client:visible />
+	</main>
+</Layout>

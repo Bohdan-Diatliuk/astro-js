@@ -1,0 +1,71 @@
+---
+export const prerender = false;
+
+import Layout from '../layouts/Layout.astro';
+import ConfirmCard from '../components/ConfirmCard';
+import StepProgress from '../components/StepProgress.astro';
+
+const dateParam = Astro.url.searchParams.get('date');
+const latParam = Astro.url.searchParams.get('lat');
+const lngParam = Astro.url.searchParams.get('lng');
+const addressParam = Astro.url.searchParams.get('address');
+
+const lat = latParam !== null ? Number(latParam) : NaN;
+const lng = lngParam !== null ? Number(lngParam) : NaN;
+
+const isComplete = Boolean(dateParam) && Number.isFinite(lat) && Number.isFinite(lng);
+
+const formattedDate = dateParam
+	? new Intl.DateTimeFormat('uk-UA', { dateStyle: 'long' }).format(new Date(`${dateParam}T00:00:00`))
+	: null;
+
+const mapsLink = isComplete ? `https://www.google.com/maps?q=${lat},${lng}` : null;
+const locationLabel = addressParam || (isComplete ? `${lat.toFixed(5)}, ${lng.toFixed(5)}` : null);
+---
+
+<Layout title="Підтвердження">
+	<main class="relative mx-auto flex min-h-screen max-w-5xl flex-col gap-10 overflow-hidden px-6 py-16">
+		<svg
+			class="float-slow absolute left-[4%] top-[6%] h-9 w-9 text-accent-soft"
+			viewBox="0 0 24 24"
+			fill="currentColor"
+			aria-hidden="true"
+		>
+			<path
+				d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
+			></path>
+		</svg>
+
+		{
+			isComplete && (
+				<>
+					<StepProgress step={4} total={4} label="Крок 4 з 4" />
+
+					<ConfirmCard
+						date={dateParam!}
+						formattedDate={formattedDate!}
+						lat={lat}
+						lng={lng}
+						locationLabel={locationLabel!}
+						mapsLink={mapsLink!}
+						client:load
+					/>
+				</>
+			)
+		}
+		{
+			!isComplete && (
+				<div class="flex flex-1 flex-col items-center justify-center gap-6 text-center">
+					<h1 class="font-display text-2xl text-accent sm:text-3xl">Дані загубились</h1>
+					<p class="text-ink-soft">Схоже, дата чи місце не збереглися. Почни спочатку.</p>
+					<a
+						href="/calendar"
+						class="rounded-full bg-accent px-8 py-3 font-medium text-white shadow-[0_10px_20px_-8px_rgba(197,67,62,0.6)] transition hover:bg-accent-dark"
+					>
+						До вибору дати
+					</a>
+				</div>
+			)
+		}
+	</main>
+</Layout>

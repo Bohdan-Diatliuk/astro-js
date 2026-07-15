@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DatePicker from '../components/DatePicker';
+import StepProgress from '../components/StepProgress.astro';
+---
+
+<Layout title="Обери дату">
+	<main class="relative mx-auto flex min-h-screen max-w-5xl flex-col gap-10 overflow-hidden px-6 py-16">
+		<svg
+			class="float-slow absolute left-[4%] top-[6%] h-9 w-9 text-accent-soft"
+			viewBox="0 0 24 24"
+			fill="currentColor"
+			aria-hidden="true"
+		>
+			<path
+				d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
+			></path>
+		</svg>
+		<svg
+			class="float-slow-delayed absolute bottom-[8%] left-[6%] h-8 w-8 text-accent-soft"
+			viewBox="0 0 24 24"
+			fill="currentColor"
+			aria-hidden="true"
+		>
+			<path
+				d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
+			></path>
+		</svg>
+
+		<StepProgress step={2} total={4} label="Крок 2 з 4" />
+
+		<div class="grid items-center gap-12 lg:grid-cols-2">
+			<div>
+				<h1 class="font-display text-4xl leading-tight text-ink sm:text-5xl">
+					Обери день<br />
+					<span class="italic text-accent">нашої зустрічі</span>
+				</h1>
+				<p class="mt-5 max-w-sm text-ink-soft">
+					Кожна мить, проведена разом, — це маленька історія. Виберемо особливу дату, яка стане
+					початком чогось чарівного.
+				</p>
+				<div class="mt-6 flex flex-wrap gap-3">
+					<span class="rounded-full border border-outline bg-card px-4 py-2 text-sm text-ink-soft">
+						✨ Тільки один день
+					</span>
+					<span class="rounded-full border border-outline bg-card px-4 py-2 text-sm text-ink-soft">
+						🕐 Минулі дати недоступні
+					</span>
+				</div>
+			</div>
+
+			<DatePicker client:load />
+		</div>
+	</main>
+</Layout>
