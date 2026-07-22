@@ -1,78 +1,89 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import RunawayButton from '../components/RunawayButton';
+import Layout from "../layouts/Layout.astro";
+import RunawayButton from "../components/RunawayButton";
 ---
 
 <Layout title="Запрошення">
-	<main class="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-20">
-		<svg
-			class="float-slow absolute left-[8%] top-[18%] h-6 w-6 text-accent-soft sm:left-[14%]"
-			viewBox="0 0 24 24"
-			fill="currentColor"
-			aria-hidden="true"
-		>
-			<path
-				d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
-			></path>
-		</svg>
-		<svg
-			class="float-slow-delayed absolute right-[10%] top-[12%] h-9 w-9 text-accent-soft sm:right-[16%]"
-			viewBox="0 0 24 24"
-			fill="currentColor"
-			aria-hidden="true"
-		>
-			<path
-				d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
-			></path>
-		</svg>
-		<svg
-			class="float-slow absolute bottom-[16%] left-[12%] h-5 w-5 text-gold sm:left-[18%]"
-			viewBox="0 0 24 24"
-			fill="currentColor"
-			aria-hidden="true"
-		>
-			<path d="M12 2l2.6 7.1L22 12l-7.4 2.9L12 22l-2.6-7.1L2 12l7.4-2.9L12 2z"></path>
-		</svg>
-		<svg
-			class="float-slow-delayed absolute bottom-[22%] right-[9%] h-5 w-5 text-gold sm:right-[15%]"
-			viewBox="0 0 24 24"
-			fill="currentColor"
-			aria-hidden="true"
-		>
-			<path d="M12 2l2.6 7.1L22 12l-7.4 2.9L12 22l-2.6-7.1L2 12l7.4-2.9L12 2z"></path>
-		</svg>
+  <main
+    class="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-20"
+  >
+    <svg
+      class="float-slow absolute left-[8%] top-[18%] h-6 w-6 text-accent-soft sm:left-[14%]"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
+      ></path>
+    </svg>
+    <svg
+      class="float-slow-delayed absolute right-[10%] top-[12%] h-9 w-9 text-accent-soft sm:right-[16%]"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
+      ></path>
+    </svg>
+    <svg
+      class="float-slow absolute bottom-[16%] left-[12%] h-5 w-5 text-gold sm:left-[18%]"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 2l2.6 7.1L22 12l-7.4 2.9L12 22l-2.6-7.1L2 12l7.4-2.9L12 2z"
+      ></path>
+    </svg>
+    <svg
+      class="float-slow-delayed absolute bottom-[22%] right-[9%] h-5 w-5 text-gold sm:right-[15%]"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 2l2.6 7.1L22 12l-7.4 2.9L12 22l-2.6-7.1L2 12l7.4-2.9L12 2z"
+      ></path>
+    </svg>
 
-		<div class="relative w-full max-w-md">
-			<div
-				class="relative rounded-[28px] bg-card px-8 py-12 text-center shadow-[0_30px_60px_-15px_rgba(61,44,46,0.22)] sm:px-10"
-			>
-				<div
-					class="absolute -top-8 left-1/2 flex h-16 w-16 -translate-x-1/2 -rotate-6 items-center justify-center rounded-full bg-accent shadow-[0_10px_20px_-6px_rgba(197,67,62,0.5)]"
-				>
-					<svg class="h-7 w-7 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-						<path
-							d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
-						></path>
-					</svg>
-				</div>
+    <div class="relative w-full max-w-md">
+      <div
+        class="relative rounded-[28px] bg-card px-8 py-12 text-center shadow-[0_30px_60px_-15px_rgba(61,44,46,0.22)] sm:px-10"
+      >
+        <div
+          class="absolute -top-8 left-1/2 flex h-16 w-16 -translate-x-1/2 -rotate-6 items-center justify-center rounded-full bg-accent shadow-[0_10px_20px_-6px_rgba(197,67,62,0.5)]"
+        >
+          <svg
+            class="h-7 w-7 text-white"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 21s-7.5-4.6-10.2-9.1C.2 9.2 1.4 5.6 4.6 4.6c2-.6 4 .2 5.4 2 .3.4.9.4 1.2 0 1.4-1.8 3.4-2.6 5.4-2 3.2 1 4.4 4.6 2.8 7.3C19.5 16.4 12 21 12 21z"
+            ></path>
+          </svg>
+        </div>
 
-				<h1 class="mt-6 font-display text-4xl italic leading-tight text-accent sm:text-[2.75rem]">
-					Ти підеш зі мною<br />на побачення?
-				</h1>
-				<p class="mx-auto mt-5 max-w-xs text-ink-soft">
-					Маленька записка з великим питанням. Хочу провести цей час із тобою.
-				</p>
+        <h1
+          class="mt-6 font-display text-4xl italic leading-tight text-accent sm:text-[2.75rem]"
+        >
+          Ти підеш зі мною<br />на побачення?
+        </h1>
+        <p class="mx-auto mt-5 max-w-xs text-ink-soft">
+          Маленька записка з великим питанням. Хочу провести цей час із тобою.
+        </p>
 
-				<div class="mt-9 flex items-center justify-center gap-4">
-					<a
-						href="/calendar"
-						class="rounded-full bg-accent px-8 py-3 font-medium text-white shadow-[0_10px_20px_-8px_rgba(197,67,62,0.6)] transition hover:bg-accent-dark"
-					>
-						Так
-					</a>
-					<RunawayButton client:load />
-				</div>
-			</div>
-		</div>
-	</main>
+        <div class="mt-9 flex items-center justify-center gap-4">
+          <a
+            href="/calendar"
+            class="rounded-full bg-accent px-8 py-3 font-medium text-white shadow-[0_10px_20px_-8px_rgba(197,67,62,0.6)] transition hover:bg-accent-dark"
+          >
+            Так
+          </a>
+          <RunawayButton client:load />
+        </div>
+      </div>
+    </div>
+  </main>
 </Layout>

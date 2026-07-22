@@ -1,11 +1,13 @@
-import { useRef, useState } from 'react';
+import { useRef, useState } from "react";
 
 const DODGE_RADIUS = 120;
 const VIEWPORT_MARGIN = 16;
 
 export default function RunawayButton() {
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
+  const [position, setPosition] = useState<{ x: number; y: number } | null>(
+    null,
+  );
 
   function handlePointerMove(event: React.PointerEvent<HTMLButtonElement>) {
     const button = buttonRef.current;
@@ -27,14 +29,27 @@ export default function RunawayButton() {
     const maxX = window.innerWidth - rect.width - VIEWPORT_MARGIN;
     const maxY = window.innerHeight - rect.height - VIEWPORT_MARGIN;
 
-    const nextX = clamp(centerX + Math.cos(angle) * jumpDistance - rect.width / 2, VIEWPORT_MARGIN, maxX);
-    const nextY = clamp(centerY + Math.sin(angle) * jumpDistance - rect.height / 2, VIEWPORT_MARGIN, maxY);
+    const nextX = clamp(
+      centerX + Math.cos(angle) * jumpDistance - rect.width / 2,
+      VIEWPORT_MARGIN,
+      maxX,
+    );
+    const nextY = clamp(
+      centerY + Math.sin(angle) * jumpDistance - rect.height / 2,
+      VIEWPORT_MARGIN,
+      maxY,
+    );
 
     setPosition({ x: nextX, y: nextY });
   }
 
   const style: React.CSSProperties = position
-    ? { position: 'fixed', left: position.x, top: position.y, transition: 'left 0.15s ease-out, top 0.15s ease-out' }
+    ? {
+        position: "fixed",
+        left: position.x,
+        top: position.y,
+        transition: "left 0.15s ease-out, top 0.15s ease-out",
+      }
     : {};
 
   return (

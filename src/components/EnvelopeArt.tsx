@@ -4,13 +4,27 @@ interface Props {
 
 export default function EnvelopeArt({ open }: Props) {
   return (
-    <div className="relative hidden overflow-hidden rounded-[28px] bg-gradient-to-br from-accent-soft via-card to-canvas-end p-10 shadow-[0_30px_60px_-15px_rgba(61,44,46,0.22)] lg:flex lg:flex-col lg:items-center lg:justify-center">
-      <div className="relative" style={{ perspective: '400px' }}>
+    <div className="relative hidden overflow-hidden rounded-[28px] bg-linear-to-br from-accent-soft via-card to-canvas-end p-10 shadow-[0_30px_60px_-15px_rgba(61,44,46,0.22)] lg:flex lg:flex-col lg:items-center lg:justify-center">
+      <div className="relative" style={{ perspective: "400px" }}>
         <svg viewBox="0 0 200 140" className="h-40 w-56" aria-hidden="true">
-          <rect x="4" y="4" width="192" height="132" rx="14" fill="#ffffff" stroke="var(--color-outline)" strokeWidth="2" />
-          <path d="M4 18 L100 90 L196 18" fill="none" stroke="var(--color-outline)" strokeWidth="2" />
+          <rect
+            x="4"
+            y="4"
+            width="192"
+            height="132"
+            rx="14"
+            fill="#ffffff"
+            stroke="var(--color-outline)"
+            strokeWidth="2"
+          />
           <path
-            className={open ? 'envelope-flap' : ''}
+            d="M4 18 L100 90 L196 18"
+            fill="none"
+            stroke="var(--color-outline)"
+            strokeWidth="2"
+          />
+          <path
+            className={open ? "envelope-flap" : ""}
             d="M4 18 L100 90 L196 18 L196 18 A14 14 0 0 0 182 4 L18 4 A14 14 0 0 0 4 18 Z"
             fill="var(--color-accent-soft)"
             stroke="var(--color-outline)"
@@ -37,7 +51,9 @@ export default function EnvelopeArt({ open }: Props) {
           </svg>
         )}
       </div>
-      <p className="mt-6 font-display text-xl italic text-ink">{open ? 'Ура!' : 'Твоє запрошення'}</p>
+      <p className="mt-6 font-display text-xl italic text-ink">
+        {open ? "Ура!" : "Твоє запрошення"}
+      </p>
     </div>
   );
 }
